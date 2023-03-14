@@ -2,11 +2,15 @@ package com.curd.SB.CRUD.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "comments")
+@Getter
+@Setter
 public class Comment {
 
     @Id
@@ -22,28 +26,4 @@ public class Comment {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Tutorial tutorial;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Tutorial getTutorial() {
-        return tutorial;
-    }
-
-    public void setTutorial(Tutorial tutorial) {
-        this.tutorial = tutorial;
-    }
 }
